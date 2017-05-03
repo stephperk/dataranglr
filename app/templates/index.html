@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+<html lang="en">
+<head>
+    <title>Site Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='custom.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/93ef33b75f.js"></script>
+    <script type="text/javascript">
+        setTimeout(function(){
+            $(".alert").each(function(index){
+                $(this).delay(200*index).fadeTo(1500,0).slideUp(500,function(){
+                    $(this).remove();
+                });
+            });
+        },2000);
+        </script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img alt="Brand" src={{url_for('static', filename="logo.svg")}} width="330px" height="50px" style="margin-top:-14px; margin-left:-120px;"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown"><a href="{{ url_for('main.about') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>ABOUT </strong>
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ url_for('main.about')}}">About Me</a></li>
+            <li><a href="#">Resume</a></li>
+            <li><a href="{{ url_for('main.contact')}}">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ url_for('main.projects') }}"><strong>PROJECTS</strong></a></li>
+
+
+        {% if current_user.is_authenticated %}
+
+        <li>
+           <a href="{{ url_for('auth.show_user_home', username=current_user.username)}}">
+           <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-user"></span></button></a></li>
+
+        <li>
+            <a href="{{ url_for('auth.logout') }}">
+            <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-log-out"></span>
+                <strong>Logout</strong></button></a></li>
+
+        {% else %}
+        <li>
+            <a href="{{ url_for('auth.login') }}">
+            <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-log-in"></span>
+                <strong>Login</strong></button></a></li>
+        {% endif %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div id="alert-message" class="alert alert-info" role="alert">
+        <!--<button type="button" class="close" data-dismiss="alert">&times;</button>-->
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% block content %}
+
+
+<div class="container-fluid">
+
+<h1>DataRanglr</h1>
+<br>
+
+</div>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+
+      <div class="jumbotron">
+        <h2>Empower a Data-Driven Business with DataRanglr</h2>
+        <hr class="my-4">
+        <p>
+          <ul class="lead">Organize your business with today's top project management software.</ul>
+          <ul class="lead">Build custom data pipelines across your web applications.</ul>
+          <ul class="lead">Inform business decisions with interactive data visualizations.</ul>
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="{{ url_for('main.contact') }}" role="button"><strong>Contact Me!</strong></a></p>
+
+
+      </div>
+  </div>
+
+
+</div>
+
+
+<div class="container-fluid main-content">
+    <h2 class="text-center">Custom Solutions for your Business</h2>
+    <br>
+    <br>
+  <div class="row content">
+    <div class="col-sm-3">
+      <div class="card text-center" style="width: 20rem;">
+        <i class="fa fa-area-chart fa-5x" aria-hidden="true"></i>
+        <div class="card-block">
+          <h4 class="card-title">Visualizations</h4>
+          <p class="card-text">Gain insights into your data with web-based visualizations.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card text-center" style="width: 20rem;">
+        <i class="fa fa-check-square-o fa-5x" aria-hidden="true"></i>
+        <div class="card-block">
+          <h4 class="card-title">Software Optimization</h4>
+          <p class="card-text">Optimize and exhance your applications.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-3">
+      <div class="card text-center" style="width: 20rem;">
+        <i class="fa fa-tachometer fa-5x" aria-hidden="true"></i>
+        <div class="card-block">
+          <h4 class="card-title">Custom Dashboards</h4>
+          <p class="card-text">Master your applications with custom dashboards.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-3">
+      <div class="card text-center" style="width: 20rem;">
+        <i class="fa fa-database fa-5x" aria-hidden="true"></i>
+        <div class="card-block">
+          <h4 class="card-title">Data Migrations</h4>
+          <p class="card-text">Get data from source to destination DataRanglr.</p>
+          <br>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+<footer class="footer">
+      <div class="container text-center">
+        <p class="text-muted">A site by Stephen Perkins</p>
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>

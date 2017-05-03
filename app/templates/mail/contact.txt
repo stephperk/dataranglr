@@ -1,0 +1,5 @@
+You have new mail!
+
+{{ name }} ({{ email }}), has left the following message:
+
+{{ message }}

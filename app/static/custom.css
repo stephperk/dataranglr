@@ -1,0 +1,106 @@
+h1, h2, h3, h4 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #003049
+}
+
+p, div {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    padding-top: 70px;
+    background-color: #eee
+}
+
+i.fa-area-chart {
+    color: #D62828
+}
+
+i.fa-check-square-o {
+    color: #ECA72C
+}
+
+i.fa-tachometer {
+    color: #09BC8A
+}
+
+
+i.fa-database {
+    color: #44355B
+}
+
+
+.page-header {
+    padding-top: 0px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+}
+
+.container-fluid {
+    max-width: 960px;
+}
+
+.page-header {
+    max-width: 960px;
+}
+
+footer { padding-top: 70px}
+
+.btn-primary {
+    background-color: #09BC8A;
+    border-color: #09BC8A
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #003049;
+    border-color: #fff;
+}
+
+.navbar-custom {
+    background-color: #003049;
+    border-radius: 0;
+
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #003049;
+}
+
+.wtforms .btn-default {
+    background-color: #09BC8A;
+    border-color: #09BC8A
+}
+
+.wtforms .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+    color: #fff;
+    background-color: #003049;
+    border-color: #fff;
+}
+
+.wtforms #submit {
+    font-weight: bold;
+}
+
+.jumbotron {
+    background-color: #fff
+}
+
+.main-content {
+    background-color: #fff;
+    border-radius: 6px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: 12px;
+    padding-right: 12px
+}
